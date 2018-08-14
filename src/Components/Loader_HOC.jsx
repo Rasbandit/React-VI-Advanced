@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default ComponentToRender =>
-  class extends Component {
+export default ComponentToRender => {
+  class WithLoader extends Component {
     filterItems(array, name) {
       return array.filter(person => person.name.toLowerCase().includes(name.toLowerCase()));
     }
@@ -21,4 +22,17 @@ export default ComponentToRender =>
         </div>
       );
     }
+  }
+
+  WithLoader.propTypes = {
+    loadingImage: PropTypes.string.isRequired,
+    data: PropTypes.array.isRequired,
+    name: PropTypes.string,
   };
+
+  WithLoader.defaultProps = {
+    name: '',
+  };
+
+  return WithLoader;
+};

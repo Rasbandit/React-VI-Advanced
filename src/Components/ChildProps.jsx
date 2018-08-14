@@ -25,7 +25,6 @@ export default class ChildProps extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <figure>{this.props.children[this.state.counter]}</figure>
     )
